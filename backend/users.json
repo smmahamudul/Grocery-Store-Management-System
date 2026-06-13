@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Admin",
+    "email": "admin@grocery.com",
+    "password_hash": "sha256$bf3dd1bb23962b23e8fad4417cedc26d$ca2b7d405687a1556fcb53b62dbf01e97dfec381a6d1129f1b613790525b409b"
+  },
+  {
+    "name": "nion",
+    "email": "nion@grocery.com",
+    "password_hash": "sha256$4a6cda048b76d8dbd76a3f02eb0ac7b0$f8ff7ea6c31716db63a9c1989c4cc44639908fc738897a5daa4d31bc01d4675e"
+  }
+]

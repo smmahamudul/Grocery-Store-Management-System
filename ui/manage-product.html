@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSMS | Products</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="page-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-badge"><i class="fa-solid fa-basket-shopping"></i></div>
+                <div class="brand-title">
+                    <strong>GSMS</strong>
+                    <span>Grocery Store Management</span>
+                </div>
+            </div>
+
+            <ul class="menu">
+                <li><a href="/dashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
+                <li><a class="active" href="/manage-product"><i class="fa-solid fa-boxes-stacked"></i> Products</a></li>
+                <li><a href="/order"><i class="fa-solid fa-receipt"></i> New Order</a></li>
+                <li class="menu-logout"><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div>
+                    <h1>Products</h1>
+                    <div class="subtext">Add, edit and delete products in a cleaner layout.</div>
+                </div>
+                <div class="user-pill"><span class="dot"></span><span id="currentUserName">Loading...</span></div>
+            </header>
+
+            <section class="section-card">
+                <div class="section-head">
+                    <div>
+                        <h2>Product list</h2>
+                        <p>Use the modal to add or update products.</p>
+                    </div>
+                    <div class="actions">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#productModal">
+                            Add New Product
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-wrap">
+                    <table class="gsms-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Unit</th>
+                                <th>Price Per Unit</th>
+                                <th style="width:190px;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            <tr><td colspan="4" class="no-data">Loading products...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add New Product</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="productForm">
+                        <input type="hidden" name="product_id" id="product_id" value="0">
+                        <div class="form-group">
+                            <label for="name">Product Name</label>
+                            <input class="form-control" placeholder="Enter product name" name="name" id="name" type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="uoms">Unit of Measure</label>
+                            <select name="uoms" id="uoms" class="form-control" required></select>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price Per Unit</label>
+                            <input class="form-control" placeholder="Enter price" name="price" id="price" type="number" min="0" step="0.01" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-green" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveProduct">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/packages/jquery.min.js"></script>
+    <script src="/js/packages/bootstrap.min.js"></script>
+    <script src="/js/custom/common.js"></script>
+    <script src="/js/custom/manage-product.js"></script>
+</body>
+</html>

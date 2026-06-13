@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSMS | Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="page-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-badge"><i class="fa-solid fa-basket-shopping"></i></div>
+                <div class="brand-title">
+                    <strong>GSMS</strong>
+                    <span>Grocery Store Management</span>
+                </div>
+            </div>
+
+            <ul class="menu">
+                <li><a class="active" href="/dashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
+                <li><a href="/manage-product"><i class="fa-solid fa-boxes-stacked"></i> Products</a></li>
+                <li><a href="/order"><i class="fa-solid fa-receipt"></i> New Order</a></li>
+                <li class="menu-logout"><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div>
+                    <h1>Dashboard</h1>
+                    <div class="subtext">Track recent sales and total revenue at a glance.</div>
+                </div>
+                <div class="user-pill"><span class="dot"></span><span id="currentUserName">Loading...</span></div>
+            </header>
+
+            <section class="cards-grid">
+                <div class="info-card">
+                    <div class="icon"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <h3 id="totalOrders">0</h3>
+                    <p>Total orders</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon currency-icon">₩</div>
+                    <h3 id="totalRevenue">0.00</h3>
+                    <p>Total revenue</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon"><i class="fa-solid fa-box"></i></div>
+                    <h3 id="totalProducts">0</h3>
+                    <p>Active products</p>
+                </div>
+                <div class="info-card">
+                    <div class="icon"><i class="fa-solid fa-clock"></i></div>
+                    <h3 id="latestOrder">—</h3>
+                    <p>Latest order</p>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <div class="section-head">
+                    <div>
+                        <h2>Recent Orders</h2>
+                        <p>Browse the latest transactions or open a full order view.</p>
+                    </div>
+                    <div class="actions">
+                        <a href="/order" class="btn btn-primary">New Order</a>
+                        <a href="/manage-product" class="btn btn-outline-green">Manage Products</a>
+                    </div>
+                </div>
+
+                <div class="table-wrap">
+                    <table class="gsms-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Order #</th>
+                                <th>Customer</th>
+                                <th>Total</th>
+                                <th style="width:120px;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <tr><td colspan="5" class="no-data">Loading orders...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Order Details</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="orderDetailsMeta" class="small-muted" style="margin-bottom:14px;"></div>
+                    <div class="table-wrap">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Unit Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orderDetailsBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/packages/jquery.min.js"></script>
+    <script src="/js/packages/bootstrap.min.js"></script>
+    <script src="/js/custom/common.js"></script>
+    <script src="/js/custom/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSMS | New Order</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="page-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-badge"><i class="fa-solid fa-basket-shopping"></i></div>
+                <div class="brand-title">
+                    <strong>GSMS</strong>
+                    <span>Grocery Store Management</span>
+                </div>
+            </div>
+
+            <ul class="menu">
+                <li><a href="/dashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
+                <li><a href="/manage-product"><i class="fa-solid fa-boxes-stacked"></i> Products</a></li>
+                <li><a class="active" href="/order"><i class="fa-solid fa-receipt"></i> New Order</a></li>
+                <li class="menu-logout"><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+            </ul>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div>
+                    <h1>New Order</h1>
+                    <div class="subtext">Create a fresh order with automatic total calculation.</div>
+                </div>
+                <div class="user-pill"><span class="dot"></span><span id="currentUserName">Loading...</span></div>
+            </header>
+
+            <form id="orderForm">
+                <section class="section-card">
+                    <div class="customer-row">
+                        <div class="grow">
+                            <label for="customerName" class="small-muted" style="font-weight:600;">Customer name</label>
+                            <input name="customerName" id="customerName" type="text" class="form-control" placeholder="Enter customer name">
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" type="button" id="addMoreButton">
+                                <i class="fa-solid fa-plus"></i> Add More
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row-header d-none d-lg-grid">
+                        <div>Product</div>
+                        <div>Price</div>
+                        <div>Quantity</div>
+                        <div>Total</div>
+                        <div>Action</div>
+                    </div>
+
+                    <div class="product-box-extra" id="itemsInOrder"></div>
+
+                    <div class="summary-card">
+                        <div>
+                            <div class="small-muted" style="font-weight:600;">Grand total</div>
+                            <div class="summary-total"><span id="grandTotalText">₩0.00</span></div>
+                        </div>
+                        <div>
+                            <input id="product_grand_total" name="product_grand_total" type="hidden" value="0.00">
+                            <button class="btn btn-primary" type="button" id="saveOrder">
+                                <i class="fa-solid fa-floppy-disk"></i> Save Order
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </form>
+
+            <div class="product-box hidden">
+                <div class="product-item">
+                    <div>
+                        <select name="product" class="form-control cart-product">
+                            <option value="">-- Select Product --</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input name="product_price" class="form-control product-price" type="number" min="0" step="0.01" value="0.00" readonly>
+                    </div>
+                    <div>
+                        <input name="qty" type="number" min="1" class="form-control product-qty" value="1">
+                    </div>
+                    <div>
+                        <input name="item_total" class="form-control product-total" type="number" min="0" step="0.01" value="0.00" readonly>
+                    </div>
+                    <div>
+                        <button class="btn btn-danger remove-row hidden" type="button">Remove</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/packages/jquery.min.js"></script>
+    <script src="/js/packages/bootstrap.min.js"></script>
+    <script src="/js/custom/common.js"></script>
+    <script src="/js/custom/order.js"></script>
+</body>
+</html>

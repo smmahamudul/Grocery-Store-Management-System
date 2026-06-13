@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSMS | Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="auth-page">
+    <div class="auth-shell">
+        <section class="auth-hero">
+            <div class="hero-top">
+                <div class="hero-logo"><i class="fa-solid fa-basket-shopping"></i></div>
+                <div>
+                    <strong style="display:block;font-size:18px;">Grocery Store Management System</strong>
+                    <span style="opacity:.85;font-size:13px;">Simple. Fast. Modern.</span>
+                </div>
+            </div>
+
+            <div>
+                <h1>Manage products, orders and sales in one single place.</h1>
+                <div class="feature-list">
+                    <div class="feature"><i class="fa-solid fa-circle-check"></i><span>Live product and order management</span></div>
+                    <div class="feature"><i class="fa-solid fa-circle-check"></i><span>Register new users and secure login</span></div>
+                    <div class="feature"><i class="fa-solid fa-circle-check"></i><span>Clean dashboard with summary cards</span></div>
+                </div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop" alt="Fresh grocery products in a store">
+        </section>
+
+        <section class="auth-form">
+            <div class="form-card">
+                <h2>Welcome back</h2>
+                <p class="lead">Sign in to continue to the dashboard.</p>
+
+                <div id="authMessage" class="auth-message"></div>
+
+                <form method="post" action="/auth/login" autocomplete="off">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="form-control" id="email" name="email" type="email" placeholder="admin@grocery.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input class="form-control" id="password" name="password" type="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" style="height:46px;">Login</button>
+                </form>
+
+                <div class="auth-footer">
+                    No account yet? <a href="/register"><strong>Create one</strong></a>
+                    <!-- <div style="margin-top:10px;">Default demo login: <strong>admin@grocery.com</strong> / <strong>admin123</strong></div> -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="/js/packages/jquery.min.js"></script>
+    <script src="/js/custom/auth.js"></script>
+</body>
+
+</html>
