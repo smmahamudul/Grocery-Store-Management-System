@@ -1,8 +1,8 @@
 # Grocery Store Management System
 
-This version keeps the grocery product and order features and includes working register/login pages.
+This project contains the product and order features and includes working register and login pages.
 
-## What is included
+What is included
 
 - Dashboard with summary cards and recent orders
 - Products page with add, edit, and delete
@@ -12,20 +12,20 @@ This version keeps the grocery product and order features and includes working r
 - Preloaded products and sample orders
 - Default demo admin account
 
-## Default demo login
+Default demo login
 
 - Email: `admin@grocery.com`
 - Password: `admin123`
 
-## Setup
+Setup
 
-### 1) Install dependencies
+1) Install dependencies
 
 ```bash
 pip install flask
 ```
 
-### 2) Run the backend
+2) Run the backend
 
 From the `backend` folder:
 
@@ -33,13 +33,13 @@ From the `backend` folder:
 python server.py
 ```
 
-### 3) Open the app
+3) Open the app
 
 Go to:
 
 - `http://127.0.0.1:5000`
 
-## Notes
+Notes
 
 - The app uses local JSON storage
 - Register creates a new user in `backend/users.json`
